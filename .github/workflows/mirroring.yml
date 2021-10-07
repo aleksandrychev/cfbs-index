@@ -23,9 +23,7 @@ jobs:
               uses: actions/setup-node@v2.4.1
 
             - name: Install node dependencies
-              run: |
-                  npm install
-                  npm install -g grunt-cli
+              run: npm install
 
             - name: Upload modules to S3
               run: grunt upload
