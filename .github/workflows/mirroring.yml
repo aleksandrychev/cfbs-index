@@ -1,4 +1,6 @@
+
 name: Modules mirroring to S3
+
 on:
     push:
         branches: [ master ]
@@ -6,9 +8,13 @@ on:
     workflow_dispatch:
 
 jobs:
+
     build:
+
         runs-on: ubuntu-latest
+
         steps:
+            -
             - name: Checks-out repository
             - uses: actions/checkout@v2
 
