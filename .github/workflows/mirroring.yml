@@ -17,7 +17,7 @@ jobs:
         steps:
             -
             - name: Checks-out repository
-            - uses: actions/checkout@v2
+              uses: actions/checkout@v2
 
             - name: Setup Node.js environment
               uses: actions/setup-node@v2.4.1
