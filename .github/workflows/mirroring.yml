@@ -1,9 +1,10 @@
-
 name: Modules mirroring to S3
 
 on:
     push:
-        branches: [ master ]
+        branches:
+            - master
+            - ENT-7665
 
     workflow_dispatch:
 
