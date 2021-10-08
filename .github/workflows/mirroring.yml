@@ -39,4 +39,4 @@ jobs:
                 pr_body: ""
                 pr_reviewer: "aleksandrychev"
                 pr_draft: false
-                github_token: ${{ secrets.GH_TOKEN }}
+                github_token: ${{ secrets.GITHUB_TOKEN }}
