@@ -31,10 +31,17 @@ jobs:
             - name: Upload modules to S3
               run: grunt upload
 
+            - name: Commit versions.json changes
+              uses: EndBug/add-and-commit@v7
+              with:
+                default_author: github_actions
+                message: 'Updated versions.json'
+                add: 'versions.json'
+
             - uses: repo-sync/pull-request@v2
               name: pull-request
               with:
-                destination_branch: "master"
+                destination_branch: "ENT-7665"
                 pr_title: "Updated versions.json"
                 pr_body: ""
                 pr_reviewer: "aleksandrychev"
