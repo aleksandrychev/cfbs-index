@@ -32,7 +32,7 @@ jobs:
               run: grunt upload
 
             - uses: repo-sync/pull-request@v2
-                name: Open pull request
+                name: pull-request
                 with:
                   destination_branch: "master"
                   pr_title: "Updated versions.json"
