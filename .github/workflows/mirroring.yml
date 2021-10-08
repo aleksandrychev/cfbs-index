@@ -24,19 +24,24 @@ jobs:
             - name: Update version.json
               run: grunt versioning
 
+            - name: Upload modules to S3
+              run: grunt upload
+
             - name: Commit version.json
               run: |
                 git config user.name 'GitHub'
                 git config user.email '<noreply@github.com>'
                 git add versions.json
                 git commit -m "Updated versions.json"
+                git add checksums.json
+                git commit -m "Updated checksums.json"
+
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v3
               with:
                 title: Chnages by mirroring action
+                body: Updated versions.json and checksums.json
                 reviewers: aleksandrychev
                 branch: mirroring/path
 
-            - name: Upload modules to S3
-              run: grunt upload

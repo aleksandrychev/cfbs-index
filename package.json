@@ -2,14 +2,12 @@
   "name": "cfbs-index",
   "version": "0.1.0",
   "devDependencies": {
+    "async-sha256": "^1.0.3",
     "aws-sdk": "^2.1002.0",
-    "checksum": "^1.0.0",
     "crypto": "^1.0.1",
+    "fs": "0.0.1-security",
     "grunt": "^1.4.1",
-    "path": "^0.12.7",
     "shelljs": "^0.8.4"
   },
-  "dependencies": {
-    "md5-file": "^5.0.0"
-  }
+  "dependencies": {}
 }
