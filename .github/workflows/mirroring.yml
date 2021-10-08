@@ -9,13 +9,9 @@ on:
     workflow_dispatch:
 
 jobs:
-
     build:
-
         runs-on: ubuntu-latest
-
         steps:
-
             - name: Checks-out repository
               uses: actions/checkout@v2
 
@@ -28,10 +24,7 @@ jobs:
             - name: Update version.json
               run: grunt versioning
 
-            - name: Upload modules to S3
-              run: grunt upload
-
-            - name: Commit changes
+            - name: Commit version.json
               run: |
                 git config user.name 'GitHub'
                 git config user.email '<noreply@github.com>'
@@ -40,3 +33,10 @@ jobs:
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v3
+              with:
+                title: Chnages by mirroring action
+                reviewers: aleksandrychev
+                branch: mirroring/path
+
+            - name: Upload modules to S3
+              run: grunt upload

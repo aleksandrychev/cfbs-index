@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "devDependencies": {
     "aws-sdk": "^2.1002.0",
-    "grunt": "^1.4.1"
+    "checksum": "^1.0.0",
+    "crypto": "^1.0.1",
+    "grunt": "^1.4.1",
+    "path": "^0.12.7",
+    "shelljs": "^0.8.4"
+  },
+  "dependencies": {
+    "md5-file": "^5.0.0"
   }
 }
