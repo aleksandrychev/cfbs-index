@@ -6,7 +6,8 @@
     "1.0.0": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc"
   },
   "inventory-etc-hosts": {
-    "1.0.0": "afbb08ab87630e724940c530050a271b63565402"
+    "1.0.0": "afbb08ab87630e724940c530050a271b63565402",
+    "1.1.0": "afbb08ab87630e724940c530050a271b63565402"
   },
   "inventory-fips-mode-setup": {
     "1.0.0": "33a9766edf741baf6ccbc3cea7a2346a9d745c87"
