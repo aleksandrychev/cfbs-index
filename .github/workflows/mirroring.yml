@@ -37,6 +37,7 @@ jobs:
                 default_author: github_actions
                 message: 'Updated versions.json'
                 add: 'versions.json'
+                push: false
 
             - uses: repo-sync/pull-request@v2
               name: pull-request
