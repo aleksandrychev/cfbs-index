@@ -38,12 +38,5 @@ jobs:
                 git add versions.json
                 git commit -m "Updated versions.json"
 
-            - uses: repo-sync/pull-request@v2
-              name: pull-request
-              with:
-                destination_branch: "ENT-7665"
-                pr_title: "Updated versions.json"
-                pr_body: ""
-                pr_reviewer: "aleksandrychev"
-                pr_draft: false
-                github_token: ${{ secrets.GITHUB_TOKEN }}
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v3
