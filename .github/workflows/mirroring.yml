@@ -25,5 +25,8 @@ jobs:
             - name: Install node dependencies
               run: npm install
 
+            - name: Update version.json
+              run: grunt versioning
+
             - name: Upload modules to S3
               run: grunt upload
