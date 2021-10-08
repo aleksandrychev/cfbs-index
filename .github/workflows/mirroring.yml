@@ -36,8 +36,8 @@ jobs:
               with:
                 token: ${{ secrets.PAT }}
                 commit-message: Update report
-                committer: GitHub <noreply@github.com>
-                author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+                committer: Igor Aleksandrychev <ihor.aleksandrychiev@northern.tech>
+                author: Igor Aleksandrychev <ihor.aleksandrychiev@northern.tech>
                 signoff: false
                 branch: autocommit
                 delete-branch: true
