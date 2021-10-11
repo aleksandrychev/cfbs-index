@@ -21,9 +21,6 @@ jobs:
             - name: Install node dependencies
               run: npm install
 
-            - name: Update version.json
-              run: grunt versioning
-
             - name: Upload modules to S3
               run: grunt upload
 
@@ -33,9 +30,6 @@ jobs:
                 git config user.email '<noreply@github.com>'
                 git add versions.json
                 git commit -m "Updated versions.json" || echo "versions.json is not changed"
-                git add checksums.json
-                git commit -m "Updated checksums.json" || echo "checksums.json is not changed"
-
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v3

@@ -1,59 +1,135 @@
 {
   "autorun": {
-    "1.0.0": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc"
+    "1.0.0": {
+      "hash_sha256": "dcf5cd98e3e1166592549130b30e228f42c448359f7a7b5c5632f4540360268a",
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "https://archive.build.cfengine.com/autorun/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz"
+    }
   },
   "client-initiated-reporting": {
-    "1.0.0": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc"
+    "1.0.0": {
+      "hash_sha256": "57b06fc03be625545652ffdc104da2e3e716ea16c0d6dbc4be5056739eb2dccb",
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "https://archive.build.cfengine.com/client-initiated-reporting/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz"
+    }
   },
   "inventory-etc-hosts": {
-    "1.0.0": "afbb08ab87630e724940c530050a271b63565402"
+    "1.0.0": {
+      "hash_sha256": "303a289635068f2be829efdee720113cb9388967b1da06e0e55428b959890a18",
+      "commit": "afbb08ab87630e724940c530050a271b63565402",
+      "archive_url": "https://archive.build.cfengine.com/inventory-etc-hosts/afbb08ab87630e724940c530050a271b63565402.tar.gz"
+    }
   },
   "inventory-fips-mode-setup": {
-    "1.0.0": "33a9766edf741baf6ccbc3cea7a2346a9d745c87"
+    "1.0.0": {
+      "hash_sha256": "062c41f2ed2ea5dadd377d86f3bb87c0c5ed5cad89be18a71de8e9ab76bb7727",
+      "commit": "33a9766edf741baf6ccbc3cea7a2346a9d745c87",
+      "archive_url": "https://archive.build.cfengine.com/inventory-fips-mode-setup/33a9766edf741baf6ccbc3cea7a2346a9d745c87.tar.gz"
+    }
   },
   "inventory-kernel-boot-params": {
-    "1.0.0": "5c132ce0d78ee5f75c5c7d7704fc19170bd0a7e8"
+    "1.0.0": {
+      "hash_sha256": "d4876e4938878dbb7cf9735c682be7ec2f97932eecf71b0390b29303367e452a",
+      "commit": "5c132ce0d78ee5f75c5c7d7704fc19170bd0a7e8",
+      "archive_url": "https://archive.build.cfengine.com/inventory-kernel-boot-params/5c132ce0d78ee5f75c5c7d7704fc19170bd0a7e8.tar.gz"
+    }
   },
   "inventory-lastlog": {
-    "1.0.0": "dceb68e99cf676823cb951dd4d14af240c30ead8"
+    "1.0.0": {
+      "hash_sha256": "096ae844498e29bb633be8bac2c989f853dc7f461702d0cf06af69ed6d20c658",
+      "commit": "dceb68e99cf676823cb951dd4d14af240c30ead8",
+      "archive_url": "https://archive.build.cfengine.com/inventory-lastlog/dceb68e99cf676823cb951dd4d14af240c30ead8.tar.gz"
+    }
   },
   "inventory-local-users": {
-    "1.0.0": "a6b29c1ac51a05c41e6a6ecea3cdf2be02938946"
+    "1.0.0": {
+      "hash_sha256": "b68301455687f273b816623dee09719aa9100bc83a19970688fb2849910f648b",
+      "commit": "a6b29c1ac51a05c41e6a6ecea3cdf2be02938946",
+      "archive_url": "https://archive.build.cfengine.com/inventory-local-users/a6b29c1ac51a05c41e6a6ecea3cdf2be02938946.tar.gz"
+    }
   },
   "inventory-systemd": {
-    "1.0.0": "4b9c0708173d3b5f0855a76063781e2258465788"
+    "1.0.0": {
+      "hash_sha256": "07ce7df5c30389ba8625d77062d72f44f6b7a411079805c886aae118200cf8b0",
+      "commit": "4b9c0708173d3b5f0855a76063781e2258465788",
+      "archive_url": "https://archive.build.cfengine.com/inventory-systemd/4b9c0708173d3b5f0855a76063781e2258465788.tar.gz"
+    }
   },
   "lynis": {
-    "1.0.0": "f18ff3cfb629e962cce8c42b8fe845faf3d10940"
+    "1.0.0": {
+      "hash_sha256": "eca04bcd81dc9579bce740755c93a9bd19e74560ff29ab3aa4787e5a1c159a7a",
+      "commit": "f18ff3cfb629e962cce8c42b8fe845faf3d10940",
+      "archive_url": "https://archive.build.cfengine.com/lynis/f18ff3cfb629e962cce8c42b8fe845faf3d10940.tar.gz"
+    }
   },
   "masterfiles": {
-    "1.0.0": "3ce8f9ed53fdcb3b41013d6fadc284b6d46aea53"
+    "1.0.0": {
+      "hash_sha256": "38ed2406e8ac7629c0046a57e55377aa2c84b8f5814dae72615cfb6906aa03d9",
+      "commit": "3ce8f9ed53fdcb3b41013d6fadc284b6d46aea53",
+      "archive_url": "https://archive.build.cfengine.com/masterfiles/3ce8f9ed53fdcb3b41013d6fadc284b6d46aea53.tar.gz"
+    }
   },
   "migrate2rocky": {
-    "1.0.0": "332dc89a479503bede5ca986092d2b95ad183129"
+    "1.0.0": {
+      "hash_sha256": "ef61da146d05b0f6215cb4fc9cf62a0862ab12dd60e61c6688d52c528ee49c71",
+      "commit": "332dc89a479503bede5ca986092d2b95ad183129",
+      "archive_url": "https://archive.build.cfengine.com/migrate2rocky/332dc89a479503bede5ca986092d2b95ad183129.tar.gz"
+    }
   },
   "library-file-integrity-monitoring": {
-    "1.0.0": "0fee53540262541c09f17cd8774ffe5ccea48482"
+    "1.0.0": {
+      "hash_sha256": "c199f58b57a13719dc623966358b8ab2e0a9ad9684a3cf87657a8a62b3dfa8a5",
+      "commit": "0fee53540262541c09f17cd8774ffe5ccea48482",
+      "archive_url": "https://archive.build.cfengine.com/library-file-integrity-monitoring/0fee53540262541c09f17cd8774ffe5ccea48482.tar.gz"
+    }
   },
   "library-for-promise-types-in-bash": {
-    "1.0.0": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc"
+    "1.0.0": {
+      "hash_sha256": "4c9d703f54cffbf9ee5da05df2c3a0ab162d4bab23f3b8a2562994748157a20c",
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "https://archive.build.cfengine.com/library-for-promise-types-in-bash/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz"
+    }
   },
   "library-for-promise-types-in-python": {
-    "1.0.0": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc"
+    "1.0.0": {
+      "hash_sha256": "ee231ab4058f39176b8f30c12df4000b52f847cd9a625932d1958c0509876354",
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "https://archive.build.cfengine.com/library-for-promise-types-in-python/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz"
+    }
   },
   "promise-type-ansible": {
-    "1.0.0": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc"
+    "1.0.0": {
+      "hash_sha256": "99637154d36875fb2d44ec2dec7b4fe3b2cb045633d6bae59132cf478b65585a",
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "https://archive.build.cfengine.com/promise-type-ansible/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz"
+    }
   },
   "promise-type-git": {
-    "1.0.0": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc"
+    "1.0.0": {
+      "hash_sha256": "cab53482b567aec7f4ed012d71c75d18b0e4356ad46d96b24ac009032a87c380",
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "https://archive.build.cfengine.com/promise-type-git/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz"
+    }
   },
   "promise-type-groups-experimental": {
-    "1.0.0": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc"
+    "1.0.0": {
+      "hash_sha256": "8d32690a29459167c5c63e0bf448aab991629c6339017458d7f18ca5d461fa90",
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "https://archive.build.cfengine.com/promise-type-groups-experimental/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz"
+    }
   },
   "promise-type-systemd": {
-    "1.0.0": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc"
+    "1.0.0": {
+      "hash_sha256": "5701f6ca8c759d014fcd861289f7e893a0f006dc4db604de930ae24c439f8f43",
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "https://archive.build.cfengine.com/promise-type-systemd/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz"
+    }
   },
   "python-3-8": {
-    "1.0.0": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc"
+    "1.0.0": {
+      "hash_sha256": "2e0c8b42b3007267fd878b30d79649966fae1f120532ed5fe6d77c0bb4ca085c",
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "https://archive.build.cfengine.com/python-3-8/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz"
+    }
   }
 }

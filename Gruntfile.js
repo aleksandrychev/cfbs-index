@@ -39,7 +39,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask("upload", async function () {
         const done = this.async();
-        const checksums = grunt.file.readJSON(`${workdir}/checksums.json`);
+        const versions = grunt.file.readJSON(`${workdir}/versions.json`);
         const readmeRegex = new RegExp('(readme\.md|readme\.org)', 'i');
 
         const tmp = shell.pwd().toString() + '/tmp';
@@ -50,11 +50,11 @@ module.exports = function (grunt) {
         for (const key of Object.keys(index.modules)) {
             const module = index.modules[key];
             if (!module.hasOwnProperty('alias')) {
-                if (!checksums.hasOwnProperty(key)) {
-                    checksums[key] = {};
+                if (!versions.hasOwnProperty(key)) {
+                    versions[key] = {};
                 }
                 // if no checksum then upload to S3 and create checksum
-                if (!checksums[key].hasOwnProperty(module.commit)) {
+                if (!versions[key].hasOwnProperty(module.version)) {
                     shell.cd(tmp);
                     shell.exec(`git clone ${module.repo}`)
                     const moduleDir = path.basename(module.repo) + '/' + (module.subdirectory || '');
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
                         shell.exec(`tar --exclude .git -czvf ${module.commit}.tar.gz ./`);
                         let hash = await createHashFromFile(`./${module.commit}.tar.gz`);
                         console.log(`The sha256 sum of ${module.commit}.tar.gz is: ${hash}`)
-                        checksums[key][module.commit] = hash;
+                        versions[key][module.version] = {"hash_sha256": hash,  commit: module.commit, "archive_url": `https://archive.build.cfengine.com/${key}/${module.commit}.tar.gz`};
                     } catch (e) {
                         console.log(e)
                     }
@@ -81,12 +81,12 @@ module.exports = function (grunt) {
                     // + calc checksum
                     // upload to S3
                     // + set check sum
-                    // console.log(checksums)
+                    // console.log(versions)
                 }
             }
         }
 
-        grunt.file.write(`${workdir}/checksums.json`, JSON.stringify(checksums, null, 2));
+        grunt.file.write(`${workdir}/versions.json`, JSON.stringify(versions, null, 2));
         done();
     });
 };
