@@ -1,0 +1,59 @@
+{
+  "autorun": {
+    "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc": "cdba22719f4a345b03e34362b0ee224a9cd110aea009a7961c9c514c3efce017"
+  },
+  "client-initiated-reporting": {
+    "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc": "9d4c4846d743f7efafbcad645ba5bd6eb84758321be89f8c267fcb14ea7d48bb"
+  },
+  "inventory-etc-hosts": {
+    "afbb08ab87630e724940c530050a271b63565402": "4e11f590013f60635411f3772ade11d3d91ffa5ab8f0932f6fb36bd831da22ed"
+  },
+  "inventory-fips-mode-setup": {
+    "33a9766edf741baf6ccbc3cea7a2346a9d745c87": "abfe3b784ea32e9e8cb074818958aef8327ce1d1e07d8520876e5b44ee19a6cc"
+  },
+  "inventory-kernel-boot-params": {
+    "5c132ce0d78ee5f75c5c7d7704fc19170bd0a7e8": "4f9791bc3d0fec795232f053b987e1f0020fa162ec65b0405de58c216ccac776"
+  },
+  "inventory-lastlog": {
+    "dceb68e99cf676823cb951dd4d14af240c30ead8": "cd53545518eef49c3d4dde6d6dda10e12117ec2dc61c0f74989d446a438b994a"
+  },
+  "inventory-local-users": {
+    "a6b29c1ac51a05c41e6a6ecea3cdf2be02938946": "dd883e87b4a16acc5fa4d0190840ec80f5f8093969cc5e654853928af090cf47"
+  },
+  "inventory-systemd": {
+    "4b9c0708173d3b5f0855a76063781e2258465788": "4366629e5b9026d84ad915b7bdc6a9df6e58ec2306673d2626d777feff66e731"
+  },
+  "lynis": {
+    "f18ff3cfb629e962cce8c42b8fe845faf3d10940": "9da96219e97e8315b5bf7e8ce479f82257683eab4028a06e1c3bd6971515157c"
+  },
+  "masterfiles": {
+    "3ce8f9ed53fdcb3b41013d6fadc284b6d46aea53": "1006a9ec785f5ae5cc72f53f7fcc751b91e9456f74bf3db9a9ee1ad9dce48873"
+  },
+  "migrate2rocky": {
+    "332dc89a479503bede5ca986092d2b95ad183129": "97700d91bfa1e3c9fb0b94105feedb0148ae8bd573e1c639ac33ead8d844f0af"
+  },
+  "library-file-integrity-monitoring": {
+    "0fee53540262541c09f17cd8774ffe5ccea48482": "c094e7006fd6e51df5e28814443682cc1ec35bf89343d7b4593cf3e27dd52367"
+  },
+  "library-for-promise-types-in-bash": {
+    "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc": "fe41fd173ff57ff4ed58d6a3b45e322b857f68b9cc73b06570c770f18d69c07e"
+  },
+  "library-for-promise-types-in-python": {
+    "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc": "73f9336321258bf70a86a212a68e64286d24c82f44936d577554ec3438685efe"
+  },
+  "promise-type-ansible": {
+    "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc": "c1e23f3a0f8f677a4bc1d9a5516ead08d1445e0b3be8df13f4a91a2598ca4ad8"
+  },
+  "promise-type-git": {
+    "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc": "26f645c603e95d65c89cf33661a8f31d33bd7b63015937496bc7f627721e6ac2"
+  },
+  "promise-type-groups-experimental": {
+    "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc": "5f03a585a068a8d4a5fd570fbee0d1da8949913b50196f545b9a120ee537d1f1"
+  },
+  "promise-type-systemd": {
+    "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc": "591849d5171d64e608e5bf22fff19a7fb93356fe71b385eb3ca37a9889c768ec"
+  },
+  "python-3-8": {
+    "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc": "40a9af93fc6d1548b7ccb6b4675702b6d3efa4fde966c83f09c6af5ebde7d4ce"
+  }
+}

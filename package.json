@@ -2,7 +2,12 @@
   "name": "cfbs-index",
   "version": "0.1.0",
   "devDependencies": {
-    "aws-sdk": "^2.1002.0",
-    "grunt": "^1.4.1"
-  }
+    "async-sha256": "^1.0.3",
+    "aws-sdk": "^2.1004.0",
+    "crypto": "^1.0.1",
+    "fs": "0.0.1-security",
+    "grunt": "^1.4.1",
+    "shelljs": "^0.8.4"
+  },
+  "dependencies": {}
 }

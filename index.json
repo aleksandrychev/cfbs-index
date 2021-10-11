@@ -27,6 +27,7 @@
       "tags": ["wip", "untested", "reporting"],
       "repo": "https://github.com/cfengine/modules",
       "by": "https://github.com/cfengine",
+      "version": "1.0.0",
       "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
       "subdirectory": "reporting/client-initiated-reporting",
       "steps": ["json def.json def.json"]
@@ -39,6 +40,7 @@
        "tags": ["inventory", "untested"],
        "repo": "https://github.com/nickanderson/cfengine-inventory-etc-hosts",
        "by": "https://github.com/nickanderson",
+       "version": "1.0.0",
        "commit": "afbb08ab87630e724940c530050a271b63565402",
        "steps": [ "copy policy/main.cf services/inventory-etc-hosts/main.cf",
                   "json cfbs/def.json def.json"]
@@ -48,6 +50,7 @@
        "tags": ["inventory", "untested"],
        "repo": "https://github.com/nickanderson/cfengine-inventory-fips-mode-setup",
        "by": "https://github.com/nickanderson",
+       "version": "1.0.0",
        "commit": "33a9766edf741baf6ccbc3cea7a2346a9d745c87",
        "steps": [
            "copy policy/main.cf services/inventory-fips-mode-setup/main.cf",
@@ -59,6 +62,7 @@
        "tags": ["inventory", "untested"],
        "repo": "https://github.com/nickanderson/cfengine-inventory-kernel-boot-params",
        "by": "https://github.com/nickanderson",
+       "version": "1.0.0",
        "commit": "5c132ce0d78ee5f75c5c7d7704fc19170bd0a7e8",
        "steps": [
            "copy policy/main.cf services/inventory-kernel-boot-params/main.cf",
@@ -70,6 +74,7 @@
        "tags": ["inventory", "untested"],
        "repo": "https://github.com/nickanderson/cfengine-inventory-lastlog",
        "by": "https://github.com/nickanderson",
+       "version": "1.0.0",
        "commit": "dceb68e99cf676823cb951dd4d14af240c30ead8",
        "steps": [
            "copy policy/main.cf services/inventory-lastlog/",
@@ -81,6 +86,7 @@
       "tags": ["wip", "untested"],
       "repo": "https://github.com/nickanderson/cfengine-local_users",
       "by": "https://github.com/nickanderson",
+      "version": "1.0.0",
       "commit": "a6b29c1ac51a05c41e6a6ecea3cdf2be02938946",
         "steps": [
             "copy ./policy/inventory_passwd_shadow_discover.cf services/inventory-local-users/",
@@ -93,6 +99,7 @@
         "tags": [ "inventory", "systemd", "untested"],
         "repo": "https://github.com/nickanderson/cfengine-inventory-systemd",
         "by": "https://github.com/nickanderson",
+        "version": "1.0.0",
         "commit": "4b9c0708173d3b5f0855a76063781e2258465788",
         "steps": [
             "copy ./policy/main.cf services/inventory-systemd/main.cf",
@@ -104,6 +111,7 @@
       "tags": ["wip", "untested", "security", "compliance"],
       "repo": "https://github.com/nickanderson/cfengine-lynis",
       "by": "https://github.com/nickanderson",
+      "version": "1.0.0",
       "commit": "f18ff3cfb629e962cce8c42b8fe845faf3d10940",
       "steps": [
         "copy policy/main.cf services/lynis/main.cf",
@@ -115,6 +123,7 @@
       "tags": ["official", "base"],
       "repo": "https://github.com/cfengine/masterfiles",
       "by": "https://github.com/cfengine",
+      "version": "1.0.0",
       "commit": "3ce8f9ed53fdcb3b41013d6fadc284b6d46aea53",
       "steps": [
           "run ./autogen.sh",
@@ -130,6 +139,7 @@
         "repo": "https://github.com/nickanderson/cfengine-migrate2rocky",
         "by": "https://github.com/nickanderson",
         "dependencies": ["promise-type-git"],
+        "version": "1.0.0",
         "commit": "332dc89a479503bede5ca986092d2b95ad183129",
         "steps": [
             "copy policy/main.cf services/migrate2rocky/main.cf",
@@ -147,6 +157,7 @@
       "tags": ["wip", "untested"],
       "repo": "https://github.com/nickanderson/cfengine-file_integrity_monitoring",
       "by": "https://github.com/nickanderson",
+      "version": "1.0.0",
       "commit": "0fee53540262541c09f17cd8774ffe5ccea48482",
       "steps": [
         "copy policy/monitor_file_paths_tagged_all_changes.cf services/file_integrity_monitoring/",
@@ -159,6 +170,7 @@
       "repo": "https://github.com/cfengine/modules",
       "by": "https://github.com/Lex-2008",
       "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "version": "1.0.0",
       "subdirectory": "libraries/bash/",
       "steps": ["copy cfengine.sh modules/promises/"]
     },
@@ -167,6 +179,7 @@
       "tags": ["wip", "untested", "library"],
       "repo": "https://github.com/cfengine/modules",
       "by": "https://github.com/cfengine",
+      "version": "1.0.0",
       "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
       "subdirectory": "libraries/python/",
       "steps": ["copy cfengine.py modules/promises/"]
@@ -178,6 +191,7 @@
       "by": "https://github.com/tranchitella",
       "dependencies": ["library-for-promise-types-in-python"],
       "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "version": "1.0.0",
       "subdirectory": "promise_types/ansible/",
       "steps": [
         "copy ansible_promise.py modules/promises/",
@@ -191,6 +205,7 @@
       "by": "https://github.com/tranchitella",
       "dependencies": ["library-for-promise-types-in-python"],
       "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "version": "1.0.0",
       "subdirectory": "promise_types/git/",
       "steps": [
         "copy git.py modules/promises/",
@@ -203,6 +218,7 @@
       "repo": "https://github.com/cfengine/modules",
       "by": "https://github.com/larsewi",
       "dependencies": ["library-for-promise-types-in-python"],
+      "version": "1.0.0",
       "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
       "subdirectory": "promise_types/groups-experimental/",
       "steps": [
@@ -216,6 +232,7 @@
       "repo": "https://github.com/cfengine/modules",
       "by": "https://github.com/tranchitella",
       "dependencies": ["library-for-promise-types-in-python"],
+      "version": "1.0.0",
       "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
       "subdirectory": "promise_types/systemd/",
       "steps": [
@@ -231,6 +248,7 @@
       "tags": ["install", "official"],
       "repo": "https://github.com/cfengine/modules",
       "by": "https://github.com/olehermanse",
+      "version": "1.0.0",
       "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
       "subdirectory": "management/python-3-8/",
       "steps": [
