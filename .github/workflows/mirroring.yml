@@ -32,9 +32,9 @@ jobs:
                 git config user.name 'GitHub'
                 git config user.email '<noreply@github.com>'
                 git add versions.json
-                git commit -m "Updated versions.json"
+                git commit -m "Updated versions.json" || echo "versions.json is not changed"
                 git add checksums.json
-                git commit -m "Updated checksums.json"
+                git commit -m "Updated checksums.json" || echo "checksums.json is not changed"
 
 
             - name: Create Pull Request
