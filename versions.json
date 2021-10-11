@@ -18,6 +18,11 @@
       "hash_sha256": "303a289635068f2be829efdee720113cb9388967b1da06e0e55428b959890a18",
       "commit": "afbb08ab87630e724940c530050a271b63565402",
       "archive_url": "https://archive.build.cfengine.com/inventory-etc-hosts/afbb08ab87630e724940c530050a271b63565402.tar.gz"
+    },
+    "1.1.0": {
+      "hash_sha256": "ddd80b790a1ac1fb7ebbe062afaef2d13318026b495d2d148a6fe61eddd6581f",
+      "commit": "a825e655af3bdfc6939186882e3b1b3292a8aa70",
+      "archive_url": "https://archive.build.cfengine.com/inventory-etc-hosts/a825e655af3bdfc6939186882e3b1b3292a8aa70.tar.gz"
     }
   },
   "inventory-fips-mode-setup": {
