@@ -40,7 +40,7 @@ jobs:
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v3
               with:
-                title: Chnages by mirroring action
+                title: Changes by mirroring action
                 body: Updated versions.json and checksums.json
                 reviewers: aleksandrychev
                 branch: mirroring/path
