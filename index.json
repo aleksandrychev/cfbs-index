@@ -40,8 +40,8 @@
        "tags": ["inventory", "untested"],
        "repo": "https://github.com/nickanderson/cfengine-inventory-etc-hosts",
        "by": "https://github.com/nickanderson",
-       "version": "1.0.0",
-       "commit": "afbb08ab87630e724940c530050a271b63565402",
+       "version": "1.1.0",
+       "commit": "a825e655af3bdfc6939186882e3b1b3292a8aa70",
        "steps": [ "copy policy/main.cf services/inventory-etc-hosts/main.cf",
                   "json cfbs/def.json def.json"]
    },
