@@ -74,7 +74,7 @@ const processReadme = async (moduleIndex, module) => {
             readme_sha256 = await createHashFromFile(`./${file}`);
         }
     }
-    return {readme_url, readme_hash_sha256};
+    return {readme_url, readme_sha256};
 }
 
 const processModules = async () => {
@@ -114,14 +114,21 @@ const processModules = async () => {
     }
 }
 
-processModules().then(() => {
-    fs.writeFile(`${workdir}/versions.json`, JSON.stringify(versions, null, 2) + "\n", function (err) {
-        if (err) return console.error(err);
-    });
-
-    if (commitMsg.length) {
-        fs.writeFile(`${workdir}/commitMsg.txt`, commitMsg.join("\n") , function (err) {
+try {
+    processModules().then(() => {
+        fs.writeFile(`${workdir}/versions.json`, JSON.stringify(versions, null, 2) + "\n", function (err) {
             if (err) return console.error(err);
         });
-    }
-})
+
+        if (commitMsg.length) {
+            fs.writeFile(`${workdir}/commitMsg.txt`, commitMsg.join("\n") , function (err) {
+                if (err) return console.error(err);
+            });
+        }
+    })
+    process.exit(0)
+} catch (e) {
+    console.error(e)
+    process.exit(1)
+}
+
