@@ -11,7 +11,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    build:
+    mirroring:
         runs-on: ubuntu-latest
         steps:
             - name: Checks-out repository
@@ -34,6 +34,7 @@ jobs:
                 git commit -F commitMsg.txt || echo "versions.json is not changed"
 
             - id: commit-message-from-file
+              name: Parse commit message from file into variable
               run: |
                 body=$(cat commitMsg.txt)
                 body="${body//$'\n'/'%0A'}"
