@@ -1,1 +1,9 @@
-{}
+{
+  "autorun": {
+    "1.1.0": {
+      "hash_sha256": "3fe8cb0b47877515875ffe67a52d56500d883df3a0eb7d64aa87c49ff79dd13b",
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "/autorun/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz"
+    }
+  }
+}
