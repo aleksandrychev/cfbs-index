@@ -24,20 +24,18 @@ jobs:
               run: npm install
 
             - name: Upload modules to S3
-              run: grunt upload
+              run: node scripts/s3uploading.js
 
             - name: Commit version.json
               run: |
                 git config user.name 'GitHub'
                 git config user.email '<noreply@github.com>'
                 git add versions.json
-                git commit -m "Updated versions.json" || echo "versions.json is not changed"
+                git commit -F commitMsg.txt || echo "versions.json is not changed"
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v3
               with:
-                title: Changes by mirroring action
-                body: Updated versions.json and checksums.json
+                title: versions.json changes by mirroring action
                 reviewers: aleksandrychev
                 branch: mirroring/path
-

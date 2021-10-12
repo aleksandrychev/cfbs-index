@@ -6,8 +6,6 @@
     "aws-sdk": "^2.1004.0",
     "crypto": "^1.0.1",
     "fs": "0.0.1-security",
-    "grunt": "^1.4.1",
     "shelljs": "^0.8.4"
-  },
-  "dependencies": {}
+  }
 }
