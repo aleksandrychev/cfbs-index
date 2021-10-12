@@ -14,7 +14,7 @@ const readJSON = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
 const modules = readJSON(`${workdir}/index.json`).modules;
 const versions = readJSON(`${workdir}/versions.json`);
 
-let commitMsg = [];
+let commitMsg = ["Updated versions.json \n"];
 
 const uploadFile = (file, s3path) => s3.upload({
     Bucket: 'cfbs',

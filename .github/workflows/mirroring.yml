@@ -33,9 +33,16 @@ jobs:
                 git add versions.json
                 git commit -F commitMsg.txt || echo "versions.json is not changed"
 
+            - id: commit-message-from-file
+              run: |
+                body=$(cat commitMsg.txt)
+                body="${body//$'\n'/'%0A'}"
+                echo ::set-output name=body::$body
+
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v3
               with:
                 title: versions.json changes by mirroring action
+                body: ${{ steps.commit-message-from-file.outputs.body }}
                 reviewers: aleksandrychev
                 branch: mirroring/path
