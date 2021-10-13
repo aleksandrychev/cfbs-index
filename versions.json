@@ -6,6 +6,13 @@
       "archive_sha256": "616fcd95dd8ab36727ce022b8b3ada52e4f3278101b9d602af7024e6a7597a4b",
       "readme_url": "modules/autorun/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.md",
       "readme_sha256": "3ecc3c56a3959592532bfa3e3d675fbbcb60de1e2b1425a14aedd7071e771815"
+    },
+    "1.2.0": {
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "modules/autorun/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz",
+      "archive_sha256": "9dd81c4c23a2fa8fcb72a258c6e278f78ff887098f99cdc571731974bd9c7042",
+      "readme_url": "modules/autorun/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.md",
+      "readme_sha256": "3ecc3c56a3959592532bfa3e3d675fbbcb60de1e2b1425a14aedd7071e771815"
     }
   },
   "client-initiated-reporting": {
