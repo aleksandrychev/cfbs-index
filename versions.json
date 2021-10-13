@@ -1,1 +1,200 @@
-{}
+{
+  "autorun": {
+    "1.0.1": {
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "modules/autorun/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz",
+      "archive_sha256": "ed1e216bd126c752fa42e70fcc89254e3fa24abdb8e242d6ae306256e806c623",
+      "readme_url": "modules/autorun/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.md",
+      "readme_sha256": "3ecc3c56a3959592532bfa3e3d675fbbcb60de1e2b1425a14aedd7071e771815"
+    }
+  },
+  "client-initiated-reporting": {
+    "0.1.0": {
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "modules/client-initiated-reporting/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz",
+      "archive_sha256": "74bf1f8152011eb06eb76688c858a1a7af050abbdb94cbee216f18ba5ce73dd0",
+      "readme_url": null,
+      "readme_sha256": null
+    }
+  },
+  "inventory-etc-hosts": {
+    "0.1.0": {
+      "commit": "afbb08ab87630e724940c530050a271b63565402",
+      "archive_url": "modules/inventory-etc-hosts/afbb08ab87630e724940c530050a271b63565402.tar.gz",
+      "archive_sha256": "b59261ae9a6019f15daf45f7f5f3a961bde2f97146eb2fdbdecb469d5259c67f",
+      "readme_url": "modules/inventory-etc-hosts/afbb08ab87630e724940c530050a271b63565402.org",
+      "readme_sha256": "56e2d4a62ddee1ffdd406f2f668c446b325ceb4800efe69e92ebabbdf552c3cc"
+    }
+  },
+  "inventory-fips-mode-setup": {
+    "0.1.0": {
+      "commit": "33a9766edf741baf6ccbc3cea7a2346a9d745c87",
+      "archive_url": "modules/inventory-fips-mode-setup/33a9766edf741baf6ccbc3cea7a2346a9d745c87.tar.gz",
+      "archive_sha256": "28e8959d3999bd9c5824ef84ae34e50c0638b460336ba88699a239c48d5204e5",
+      "readme_url": "modules/inventory-fips-mode-setup/33a9766edf741baf6ccbc3cea7a2346a9d745c87.org",
+      "readme_sha256": "8e680cde868569494cccdc227453e366b8acbbc291df547d42ca4c0006ed07d4"
+    }
+  },
+  "inventory-kernel-boot-params": {
+    "0.1.0": {
+      "commit": "5c132ce0d78ee5f75c5c7d7704fc19170bd0a7e8",
+      "archive_url": "modules/inventory-kernel-boot-params/5c132ce0d78ee5f75c5c7d7704fc19170bd0a7e8.tar.gz",
+      "archive_sha256": "3ee85fe40c7ca613c656f4e33ffe73b2e4e6ed1910939e4d3a7fdebfa3574ec1",
+      "readme_url": "modules/inventory-kernel-boot-params/5c132ce0d78ee5f75c5c7d7704fc19170bd0a7e8.org",
+      "readme_sha256": "cdf303d340b9cc44c80b7f884181eff8f8154f6d8236d3320c62fb91295b21e0"
+    }
+  },
+  "inventory-kernel-settings-sysctl-conf": {
+    "1.0.0": {
+      "commit": "69149b9d15874c4f584441cd40019a79a92ad8f2",
+      "archive_url": "modules/inventory-kernel-settings-sysctl-conf/69149b9d15874c4f584441cd40019a79a92ad8f2.tar.gz",
+      "archive_sha256": "8bef4702d44009e4f01b02191c216a7d29eb1fdb5344a68620d0f8172ac7482c",
+      "readme_url": "modules/inventory-kernel-settings-sysctl-conf/69149b9d15874c4f584441cd40019a79a92ad8f2.org",
+      "readme_sha256": "c4f635ba7cb1bd956f71f7f18f9d288835877b9a17173144b2fc94bfa96295e4"
+    }
+  },
+  "inventory-kernel-settings-sysctl-current": {
+    "1.0.0": {
+      "commit": "69149b9d15874c4f584441cd40019a79a92ad8f2",
+      "archive_url": "modules/inventory-kernel-settings-sysctl-current/69149b9d15874c4f584441cd40019a79a92ad8f2.tar.gz",
+      "archive_sha256": "7e508b044ad32d8bccd5e12513e278549d478b4116f3ac07eed219130a926506",
+      "readme_url": "modules/inventory-kernel-settings-sysctl-current/69149b9d15874c4f584441cd40019a79a92ad8f2.org",
+      "readme_sha256": "acb952da68d6171e16b275ff66d8efe9fae875f33f37349e0620c5bde791724e"
+    }
+  },
+  "inventory-lastlog": {
+    "0.1.0": {
+      "commit": "dceb68e99cf676823cb951dd4d14af240c30ead8",
+      "archive_url": "modules/inventory-lastlog/dceb68e99cf676823cb951dd4d14af240c30ead8.tar.gz",
+      "archive_sha256": "5c52cac9e29c5e6b3f8888e7a992cbcee122413f5350ee97a04f39ad7bc82b18",
+      "readme_url": "modules/inventory-lastlog/dceb68e99cf676823cb951dd4d14af240c30ead8.org",
+      "readme_sha256": "37483a2ec1e40caa57afc6a151fa525ca435539462dbba6d4efb6d72a17ad4f5"
+    }
+  },
+  "inventory-local-users": {
+    "0.1.0": {
+      "commit": "a6b29c1ac51a05c41e6a6ecea3cdf2be02938946",
+      "archive_url": "modules/inventory-local-users/a6b29c1ac51a05c41e6a6ecea3cdf2be02938946.tar.gz",
+      "archive_sha256": "f8439aec490fab95067ce7f8f7f6b753797974d574f2a53d16efa3f9efce62a8",
+      "readme_url": "modules/inventory-local-users/a6b29c1ac51a05c41e6a6ecea3cdf2be02938946.org",
+      "readme_sha256": "e9483f9ff349f1f586d1f20e1f8cfda2f27a2541a50ebc299bb04e6af56bc93e"
+    }
+  },
+  "inventory-systemd": {
+    "0.1.0": {
+      "commit": "4b9c0708173d3b5f0855a76063781e2258465788",
+      "archive_url": "modules/inventory-systemd/4b9c0708173d3b5f0855a76063781e2258465788.tar.gz",
+      "archive_sha256": "2f358332fa95eadea833a48b0ed1a33e63c13253a58e2013ed75454e6666f2cc",
+      "readme_url": "modules/inventory-systemd/4b9c0708173d3b5f0855a76063781e2258465788.org",
+      "readme_sha256": "4041d2526521cf9cdfbfacf352f6eb90c5459f4ccfa72e4b6b91da2205a883f1"
+    }
+  },
+  "kernel-settings-sysctl-conf": {
+    "1.0.0": {
+      "commit": "0d4fd85fa22ee6c52ace5222202b3290a5902862",
+      "archive_url": "modules/kernel-settings-sysctl-conf/0d4fd85fa22ee6c52ace5222202b3290a5902862.tar.gz",
+      "archive_sha256": "69ca01423d60c86d4e4206deb18f409dd9f24a62689e72df8e718a965c72d736",
+      "readme_url": "modules/kernel-settings-sysctl-conf/0d4fd85fa22ee6c52ace5222202b3290a5902862.org",
+      "readme_sha256": "ef59f3c67395c671349271aaee74705e53a33b249d506e886fba18bd9d5768d1"
+    }
+  },
+  "lynis": {
+    "0.1.0": {
+      "commit": "f18ff3cfb629e962cce8c42b8fe845faf3d10940",
+      "archive_url": "modules/lynis/f18ff3cfb629e962cce8c42b8fe845faf3d10940.tar.gz",
+      "archive_sha256": "65db00d789ff5fc2198f08f42b6eb408ec40a45417020a31254116a810b425aa",
+      "readme_url": "modules/lynis/f18ff3cfb629e962cce8c42b8fe845faf3d10940.org",
+      "readme_sha256": "824f98bcb64b4c0fe468ead74c6484ffd95728e227010e5e2b7c9681448e590c"
+    }
+  },
+  "masterfiles": {
+    "0.1.0": {
+      "commit": "3ce8f9ed53fdcb3b41013d6fadc284b6d46aea53",
+      "archive_url": "modules/masterfiles/3ce8f9ed53fdcb3b41013d6fadc284b6d46aea53.tar.gz",
+      "archive_sha256": "72ee36ecab456bfaa69bd96bc1c20735212461e02a90045af1b27edbea233501",
+      "readme_url": "modules/masterfiles/3ce8f9ed53fdcb3b41013d6fadc284b6d46aea53.md",
+      "readme_sha256": "1ee581f7247cdaa93af130dabcdc0c11766bdd0593bafed9d1b8fc1c07515632"
+    }
+  },
+  "migrate2rocky": {
+    "0.1.0": {
+      "commit": "332dc89a479503bede5ca986092d2b95ad183129",
+      "archive_url": "modules/migrate2rocky/332dc89a479503bede5ca986092d2b95ad183129.tar.gz",
+      "archive_sha256": "0cc8ec914ced660c5d84fda06cebe9a8bc5e4fe0ad68b364b0ffad49f44c3052",
+      "readme_url": "modules/migrate2rocky/332dc89a479503bede5ca986092d2b95ad183129.org",
+      "readme_sha256": "50574c947aa600a3e995f02e1f1da738fe4485dbebc903f279c889b977937386"
+    }
+  },
+  "library-file-integrity-monitoring": {
+    "0.1.0": {
+      "commit": "0fee53540262541c09f17cd8774ffe5ccea48482",
+      "archive_url": "modules/library-file-integrity-monitoring/0fee53540262541c09f17cd8774ffe5ccea48482.tar.gz",
+      "archive_sha256": "7af5fa68e3090e8a612deeed33b7f49cb83f09fe9e3b94172362b55da11ea3f3",
+      "readme_url": "modules/library-file-integrity-monitoring/0fee53540262541c09f17cd8774ffe5ccea48482.org",
+      "readme_sha256": "16bc2470bd4970aebb1febca8778857f4ac43d9227e55bfddbfc50673fb1e2b2"
+    }
+  },
+  "library-for-promise-types-in-bash": {
+    "0.1.0": {
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "modules/library-for-promise-types-in-bash/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz",
+      "archive_sha256": "8dc887c58b87cf43a4f5a7354cbdb790663c0df3dd6c2219312334f74fe95694",
+      "readme_url": null,
+      "readme_sha256": null
+    }
+  },
+  "library-for-promise-types-in-python": {
+    "0.1.0": {
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "modules/library-for-promise-types-in-python/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz",
+      "archive_sha256": "a84607a153396aa035033c4fe54b6b9046c88207cbabd9b97bc9566fc5a32c95",
+      "readme_url": null,
+      "readme_sha256": null
+    }
+  },
+  "promise-type-ansible": {
+    "0.1.0": {
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "modules/promise-type-ansible/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz",
+      "archive_sha256": "1df07bafa155f8fa0995c433f7c26aec37e6083d8eb8377433223470337c465d",
+      "readme_url": "modules/promise-type-ansible/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.md",
+      "readme_sha256": "21d94d9a63f3f1477da9bc6de0c6e9cf61798caa3ea2a8c49fe8574637a94383"
+    }
+  },
+  "promise-type-git": {
+    "0.1.0": {
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "modules/promise-type-git/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz",
+      "archive_sha256": "5527ea295519fd4e95d4e8d94f166d8b0ec73cc9edd35add388cbe1f5f53d3a1",
+      "readme_url": "modules/promise-type-git/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.md",
+      "readme_sha256": "6d1ad4ad5abf322f2f4db6df43b568cec29745ff65ea1188a3a31af957525419"
+    }
+  },
+  "promise-type-groups-experimental": {
+    "0.1.0": {
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "modules/promise-type-groups-experimental/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz",
+      "archive_sha256": "85d3dcc41af4a3c968bdd6b59c96e707acb71cc35179b71adba5c58431f9a3cf",
+      "readme_url": null,
+      "readme_sha256": null
+    }
+  },
+  "promise-type-systemd": {
+    "0.1.0": {
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "modules/promise-type-systemd/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz",
+      "archive_sha256": "da7b77afd79b47da61f54393a21fa9f125a1c3a8ee66c5234ce14ff1d2edcd6a",
+      "readme_url": "modules/promise-type-systemd/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.md",
+      "readme_sha256": "cba2a27327a5c596ab19c62e9b39ff29c551b90b030c60fb172970d14a6e16d2"
+    }
+  },
+  "python-3-8": {
+    "0.1.0": {
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "archive_url": "modules/python-3-8/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.tar.gz",
+      "archive_sha256": "ce231de4875dff516d355765baffef791b551ca77ab4708d1b8565116fa23b92",
+      "readme_url": "modules/python-3-8/2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc.md",
+      "readme_sha256": "391bc23ce3371bc031cf0ff8c13c61162f5d87059d8667002e40ea3523fb0a0f"
+    }
+  }
+}
