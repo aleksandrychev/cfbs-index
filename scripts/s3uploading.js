@@ -12,6 +12,7 @@ const s3 = new AWS.S3({
 const tmp = `${workdir}/tmp`;
 const readmeRegex = new RegExp('(readme\.md|readme\.org)', 'i');
 const Bucket = process.env.BUCKET_NAME
+console.log(Bucket)
 
 const readJSON = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
 
