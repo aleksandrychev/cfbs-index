@@ -1,0 +1,55 @@
+name: Modules mirroring to S3
+
+on:
+    push:
+        branches:
+            - master
+            - ENT-7665
+        paths:
+          - index.json
+
+    workflow_dispatch:
+
+jobs:
+    mirroring:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checks-out repository
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v2.4.1
+
+            - name: Install node dependencies
+              run: |
+                cd scripts
+                npm install
+
+            - name: Upload modules to S3
+              run: node scripts/s3uploading.js
+              env:
+                AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+            - name: Commit version.json
+              run: |
+                git config user.name 'GitHub'
+                git config user.email '<noreply@github.com>'
+                git add versions.json
+                git commit -F commitMsg.txt || echo "versions.json is not changed"
+
+            - id: commit-message-from-file
+              name: Parse commit message from file into variable
+              run: |
+                body=$(cat commitMsg.txt)
+                body="${body//$'\n'/'%0A'}"
+                echo ::set-output name=body::$body
+
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v3
+              with:
+                title: versions.json changes by mirroring action
+                body: ${{ steps.commit-message-from-file.outputs.body }}
+                reviewers: |
+                  aleksandrychev
+                branch: mirroring/path
