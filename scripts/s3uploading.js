@@ -20,13 +20,20 @@ const versions = readJSON(`${workdir}/versions.json`);
 
 let commitMsg = ["Updated versions.json\n"];
 
+let uploadQueue = [];
+
+const exit = err => {
+    console.error(`\x1b[31m${err}\x1b[0m`);
+    process.exit(1);
+}
+
 const uploadFile = (file, s3path) => s3.upload({
     Bucket,
     Key: s3path,
     Body: fs.readFileSync(file),
     ACL: 'public-read'
 }, (err, data) => {
-    if (err) console.error("Error while uploading", err);
+    if (err) exit(`Error while uploading. Err.: ${err}`)
     if (data) console.log(`${data.Location} successfully uploaded`);
 })
 
@@ -36,11 +43,23 @@ const createTMP = () => {
 }
 createTMP();
 
-const checkout = (module) => {
-    shell.exec(`git clone --no-checkout ${module.repo}`)
-    shell.exec(`git checkout ${module.commit}`)
-    const moduleDir = path.basename(module.repo) + '/' + (module.subdirectory || '');
-    shell.cd(moduleDir);
+const exec = (command) => new Promise((resolve, reject) =>
+     shell.exec(command, (exitCode, stdout, stderr) => (exitCode !== 0) ? reject(new Error(stderr)) : resolve(stdout))
+);
+
+const checkout = async (module) => {
+    shell.cd(tmp);
+    // GIT_TERMINAL_PROMPT=0 disables git clone prompting for credentials in case of private or non-existing repository
+    await exec(`GIT_TERMINAL_PROMPT=0 git clone --no-checkout ${module.repo}`)
+        .catch(e => exit(`Error occurred while ${module.repo} cloning. Err. ${e.message}`));
+    shell.cd(path.basename(module.repo));
+
+    await exec(`git checkout ${module.commit}`)
+        .catch(e => exit(`Error occurred while ${module.repo} ${module.commit} checkout. Err. ${e.message}`));
+
+    if (module.subdirectory && module.subdirectory.length > 0) {
+        shell.cd(module.subdirectory);
+    }
 }
 
 const createHashFromFile = filePath => new Promise(resolve => {
@@ -48,12 +67,13 @@ const createHashFromFile = filePath => new Promise(resolve => {
     fs.createReadStream(filePath).on('data', data => hash.update(data)).on('end', () => resolve(hash.digest('hex')));
 });
 
-const processArchive = async (index, module) => {
+const processArchive = async (name, module) => {
     const archiveBaseName  = `${module.commit}.tar.gz`;
-    shell.exec(`git archive --format tar.gz --output ${archiveBaseName} ${module.commit}`);
+    await exec(`git archive ${module.commit} --format tar.gz --output ${archiveBaseName}`)
+        .catch(e => exit(`Error occurred while archiving ${name} module. Err. ${e.message}`));
     let hash = await createHashFromFile(`./${archiveBaseName}`);
-    const s3path = `modules/${index}/${module.commit}.tar.gz`;
-    uploadFile(`./${module.commit}.tar.gz`, s3path);
+    const s3path = `modules/${name}/${module.commit}.tar.gz`;
+    uploadQueue.push({localPath: `${shell.pwd().toString()}/${module.commit}.tar.gz`, s3path});
     return {"archive_url": s3path, "archive_sha256": hash}
 }
 
@@ -62,7 +82,7 @@ const processReadme = async (moduleName, module) => {
     for (const file of shell.ls('*')) {
         if (readmeRegex.test(file)) {
             readme_url = `modules/${moduleName}/${module.commit}${path.extname(file)}`;
-            uploadFile(file, readme_url);
+            uploadQueue.push({localPath: `${shell.pwd().toString()}/${file}`, s3path: readme_url});
             readme_sha256 = await createHashFromFile(`./${file}`);
         }
     }
@@ -77,19 +97,17 @@ const processModules = async () => {
             module.hasOwnProperty('alias') ||
             (versions.hasOwnProperty(moduleName) && versions[moduleName].hasOwnProperty(module.version))
         ) continue;
-
+if(moduleName != 'autorun') continue;
         if (!module.commit || module.commit.length == 0) {
-            console.error(`${moduleName} module does not have commit`);
+            exit(`${moduleName} module does not have commit`);
             continue;
         }
-
-        shell.cd(tmp);
-        checkout(module);
 
         if (!versions.hasOwnProperty(moduleName)) {
             versions[moduleName] = {};
         }
 
+        await checkout(module);
         const readme = await processReadme(moduleName, module);
         const archive = await processArchive(moduleName, module);
 
@@ -106,15 +124,20 @@ const processModules = async () => {
 
 try {
     processModules().then(() => {
+        if (uploadQueue.length == 0) return;
+
+        uploadQueue.forEach(item => {
+            uploadFile(item.localPath, item.s3path);
+        })
+
         fs.writeFile(`${workdir}/versions.json`, JSON.stringify(versions, null, 2) + "\n", function (err) {
-            if (err) return console.error(err);
+            if (err) exit(err);
         });
 
         fs.writeFile(`${workdir}/commitMsg.txt`, commitMsg.join("\n"), function (err) {
-            if (err) return console.error(err);
+            if (err) exit(err);
         });
     })
 } catch (e) {
-    console.error(e)
-    process.exit(1)
+    exit(e)
 }
