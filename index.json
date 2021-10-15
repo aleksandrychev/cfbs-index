@@ -7,7 +7,7 @@
       "repo": "https://github.com/cfengine/modules",
       "by": "https://github.com/cfengine",
       "version": "1.0.0",
-      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc",
+      "commit": "2bd83b1c0d1e6799a8d7221d7e98360b1bdc99bc-wrongcommit",
       "subdirectory": "management/autorun",
       "steps": ["json def.json def.json"]
     },
