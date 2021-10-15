@@ -10,7 +10,7 @@ const s3 = new AWS.S3({
     "AWS_SECRET_ACCESS_KEY": process.env.AWS_SECRET_ACCESS_KEY
 });
 const tmp = `${workdir}/tmp`;
-const readmeRegex = new RegExp('(readme\.md|readme\.org)', 'i');
+const readmeRegex = new RegExp('^readme((\.(org|md|rst)$)|$)', 'i'); // readme, readme.org, readme.md, readme.rst
 const Bucket = process.env.BUCKET_NAME
 
 const readJSON = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -18,7 +18,7 @@ const readJSON = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
 const modules = readJSON(`${workdir}/index.json`).modules;
 const versions = readJSON(`${workdir}/versions.json`);
 
-let commitMsg = ["Updated versions.json \n"];
+let commitMsg = ["Updated versions.json\n"];
 
 const uploadFile = (file, s3path) => s3.upload({
     Bucket,
@@ -37,7 +37,7 @@ const createTMP = () => {
 createTMP();
 
 const checkout = (module) => {
-    shell.exec(`git clone ${module.repo}`)
+    shell.exec(`git clone --no-checkout ${module.repo}`)
     shell.exec(`git checkout ${module.commit}`)
     const moduleDir = path.basename(module.repo) + '/' + (module.subdirectory || '');
     shell.cd(moduleDir);
@@ -57,13 +57,12 @@ const processArchive = async (index, module) => {
     return {"archive_url": s3path, "archive_sha256": hash}
 }
 
-const processReadme = async (moduleIndex, module) => {
+const processReadme = async (moduleName, module) => {
     let readme_url = null, readme_sha256 = null;
-    for (const file of shell.ls('*.{md,org}')) {
+    for (const file of shell.ls('*')) {
         if (readmeRegex.test(file)) {
-            let s3ReadmePath = `modules/${moduleIndex}/${module.commit}${path.extname(file)}`;
-            uploadFile(file, `modules/${moduleIndex}/${module.commit}${path.extname(file)}`);
-            readme_url = s3ReadmePath;
+            readme_url = `modules/${moduleName}/${module.commit}${path.extname(file)}`;
+            uploadFile(file, readme_url);
             readme_sha256 = await createHashFromFile(`./${file}`);
         }
     }
@@ -71,32 +70,37 @@ const processReadme = async (moduleIndex, module) => {
 }
 
 const processModules = async () => {
-    for (const moduleIndex in modules) {
-        const module = modules[moduleIndex];
+    for (const moduleName in modules) {
+        const module = modules[moduleName];
         // skip if alias or version already exists
         if (
             module.hasOwnProperty('alias') ||
-            (versions.hasOwnProperty(moduleIndex) && versions[moduleIndex].hasOwnProperty(module.version))
+            (versions.hasOwnProperty(moduleName) && versions[moduleName].hasOwnProperty(module.version))
         ) continue;
+
+        if (!module.commit || module.commit.length == 0) {
+            console.error(`${moduleName} module does not have commit`);
+            continue;
+        }
 
         shell.cd(tmp);
         checkout(module);
 
-        if (!versions.hasOwnProperty(moduleIndex)) {
-            versions[moduleIndex] = {};
+        if (!versions.hasOwnProperty(moduleName)) {
+            versions[moduleName] = {};
         }
 
-        const readme = await processReadme(moduleIndex, module);
-        const archive = await processArchive(moduleIndex, module);
+        const readme = await processReadme(moduleName, module);
+        const archive = await processArchive(moduleName, module);
 
-        versions[moduleIndex][module.version] = {
+        versions[moduleName][module.version] = {
             "commit": module.commit,
             "timestamp": Date.now(),
             ...archive,
             ...readme
         };
 
-        commitMsg.push(`- Added ${moduleIndex} ${module.version} version`);
+        commitMsg.push(`- Added ${moduleName} ${module.version} version`);
     }
 }
 
