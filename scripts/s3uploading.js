@@ -47,12 +47,16 @@ const exec = (command) => new Promise((resolve, reject) =>
      shell.exec(command, (exitCode, stdout, stderr) => (exitCode !== 0) ? reject(new Error(stderr)) : resolve(stdout))
 );
 
-const checkout = async (module) => {
-    shell.cd(tmp);
+const checkout = async (module, moduleName) => {
+    /**
+     * clone each repository to an individual directory based on sha1(moduleName)
+     * we can have repository with the same name but from different git hosting services
+     */
+    const moduleLocalPath = `${tmp}/${stringToSha1(moduleName)}`;
     // GIT_TERMINAL_PROMPT=0 disables git clone prompting for credentials in case of private or non-existing repository
-    await exec(`GIT_TERMINAL_PROMPT=0 git clone --no-checkout ${module.repo}`)
+    await exec(`GIT_TERMINAL_PROMPT=0 git clone --no-checkout ${module.repo} ${moduleLocalPath}`)
         .catch(e => exit(`Error occurred while ${module.repo} cloning. Err. ${e.message}`));
-    shell.cd(path.basename(module.repo));
+    shell.cd(moduleLocalPath);
 
     await exec(`git checkout ${module.commit}`)
         .catch(e => exit(`Error occurred while ${module.repo} ${module.commit} checkout. Err. ${e.message}`));
@@ -66,6 +70,8 @@ const createHashFromFile = filePath => new Promise(resolve => {
     const hash = crypto.createHash('sha256');
     fs.createReadStream(filePath).on('data', data => hash.update(data)).on('end', () => resolve(hash.digest('hex')));
 });
+
+const stringToSha1 = string => crypto.createHash('sha1').update(string).digest('hex');
 
 const processArchive = async (name, module) => {
     const archiveBaseName  = `${module.commit}.tar.gz`;
@@ -97,7 +103,7 @@ const processModules = async () => {
             module.hasOwnProperty('alias') ||
             (versions.hasOwnProperty(moduleName) && versions[moduleName].hasOwnProperty(module.version))
         ) continue;
-if(moduleName != 'autorun') continue;
+
         if (!module.commit || module.commit.length == 0) {
             exit(`${moduleName} module does not have commit`);
             continue;
@@ -107,7 +113,7 @@ if(moduleName != 'autorun') continue;
             versions[moduleName] = {};
         }
 
-        await checkout(module);
+        await checkout(module, moduleName);
         const readme = await processReadme(moduleName, module);
         const archive = await processArchive(moduleName, module);
 
