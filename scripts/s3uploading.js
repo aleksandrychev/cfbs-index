@@ -4,23 +4,20 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const workdir = process.env.GITHUB_WORKSPACE;
+const workdir = process.env.workdir;
 const s3 = new AWS.S3({
     "AWS_ACCESS_KEY_ID": process.env.AWS_ACCESS_KEY_ID,
     "AWS_SECRET_ACCESS_KEY": process.env.AWS_SECRET_ACCESS_KEY
 });
 const tmp = `${workdir}/tmp`;
-const readmeRegex = new RegExp('^readme((\.(org|md|rst)$)|$)', 'i'); // readme, readme.org, readme.md, readme.rst
+const readmeRegex = new RegExp('^readme((\.(org|md|adoc|rst)$)|$)', 'i'); // readme, readme.org, readme.adoc, readme.md, readme.rst
 const Bucket = process.env.BUCKET_NAME
 
 const readJSON = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
 
-const modules = readJSON(`${workdir}/index.json`).modules;
 const versions = readJSON(`${workdir}/versions.json`);
 
 let commitMsg = ["Updated versions.json\n"];
-
-let uploadQueue = [];
 
 const exit = err => {
     console.error(`\x1b[31m${err}\x1b[0m`);
@@ -41,7 +38,6 @@ const createTMP = () => {
     shell.rm('-rf', tmp);
     shell.mkdir(tmp);
 }
-createTMP();
 
 const exec = (command) => new Promise((resolve, reject) =>
      shell.exec(command, (exitCode, stdout, stderr) => (exitCode !== 0) ? reject(new Error(stderr)) : resolve(stdout))
@@ -73,8 +69,8 @@ const createHashFromFile = filePath => new Promise(resolve => {
 
 const stringToSha1 = string => crypto.createHash('sha1').update(string).digest('hex');
 
-const processArchive = async (name, module) => {
-    const archiveBaseName  = `${module.commit}.tar.gz`;
+const processArchive = async (name, module, uploadQueue) => {
+    const archiveBaseName = `${module.commit}.tar.gz`;
     await exec(`git archive ${module.commit} --format tar.gz --output ${archiveBaseName}`)
         .catch(e => exit(`Error occurred while archiving ${name} module. Err. ${e.message}`));
     let hash = await createHashFromFile(`./${archiveBaseName}`);
@@ -83,7 +79,7 @@ const processArchive = async (name, module) => {
     return {"archive_url": s3path, "archive_sha256": hash}
 }
 
-const processReadme = async (moduleName, module) => {
+const processReadme = async (moduleName, module, uploadQueue) => {
     let readme_url = null, readme_sha256 = null;
     for (const file of shell.ls('*')) {
         if (readmeRegex.test(file)) {
@@ -95,7 +91,9 @@ const processReadme = async (moduleName, module) => {
     return {readme_url, readme_sha256};
 }
 
-const processModules = async () => {
+const processModules = async (modules) => {
+
+    let uploadQueue = [];
     for (const moduleName in modules) {
         const module = modules[moduleName];
         // skip if alias or version already exists
@@ -106,7 +104,6 @@ const processModules = async () => {
 
         if (!module.commit || module.commit.length == 0) {
             exit(`${moduleName} module does not have commit`);
-            continue;
         }
 
         if (!versions.hasOwnProperty(moduleName)) {
@@ -114,8 +111,8 @@ const processModules = async () => {
         }
 
         await checkout(module, moduleName);
-        const readme = await processReadme(moduleName, module);
-        const archive = await processArchive(moduleName, module);
+        const readme = await processReadme(moduleName, module, uploadQueue);
+        const archive = await processArchive(moduleName, module, uploadQueue);
 
         versions[moduleName][module.version] = {
             "commit": module.commit,
@@ -126,24 +123,29 @@ const processModules = async () => {
 
         commitMsg.push(`- Added ${moduleName} ${module.version} version`);
     }
+    return uploadQueue;
 }
 
 try {
-    processModules().then(() => {
-        if (uploadQueue.length == 0) return;
+    (async () => {
+        createTMP();
+        const modules = readJSON(`${workdir}/index.json`).modules;
+        await processModules(modules).then((uploadQueue) => {
+            if (uploadQueue.length == 0) return;
 
-        uploadQueue.forEach(item => {
-            uploadFile(item.localPath, item.s3path);
+            uploadQueue.forEach(item => {
+                uploadFile(item.localPath, item.s3path);
+            })
+
+            fs.writeFile(`${workdir}/versions.json`, JSON.stringify(versions, null, 2) + "\n", function (err) {
+                if (err) exit(err);
+            });
+
+            fs.writeFile(`${workdir}/commitMsg.txt`, commitMsg.join("\n"), function (err) {
+                if (err) exit(err);
+            });
         })
-
-        fs.writeFile(`${workdir}/versions.json`, JSON.stringify(versions, null, 2) + "\n", function (err) {
-            if (err) exit(err);
-        });
-
-        fs.writeFile(`${workdir}/commitMsg.txt`, commitMsg.join("\n"), function (err) {
-            if (err) exit(err);
-        });
-    })
+    })()
 } catch (e) {
     exit(e)
 }

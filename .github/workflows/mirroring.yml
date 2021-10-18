@@ -30,6 +30,7 @@ jobs:
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                 AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                 BUCKET_NAME: cfbs
+                workdir: ${{ github.workspace }}
 
             - name: Commit version.json
               run: |
@@ -46,7 +47,7 @@ jobs:
                 echo ::set-output name=body::$body
 
             - name: Create Pull Request
-              uses: peter-evans/create-pull-request@v3
+              uses: cfengine/create-pull-request@v3
               with:
                 title: versions.json changes by mirroring action
                 body: ${{ steps.commit-message-from-file.outputs.body }}
