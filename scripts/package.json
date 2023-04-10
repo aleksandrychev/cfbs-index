@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "async-sha256": "^1.0.3",
-    "aws-sdk": "^2.1004.0",
+    "aws-sdk": "^2.1354.0",
     "crypto": "^1.0.1",
     "fs": "0.0.1-security",
     "shelljs": "^0.8.4"
